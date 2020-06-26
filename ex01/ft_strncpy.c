@@ -6,7 +6,7 @@
 /*   By: ukhoba <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 09:03:38 by ukhoba            #+#    #+#             */
-/*   Updated: 2020/06/26 09:04:34 by ukhoba           ###   ########.fr       */
+/*   Updated: 2020/06/26 11:39:35 by ukhoba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 char	*ft_strncpy(char *dest, char *src, unsigned int n)
@@ -14,18 +14,18 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 	unsigned int	index;
 
 	index = 0;
-	while	(src[index] != '\0' && index < n)
+	while	(index < n && src[index] != '\0')
 	{
-		if	(index > ft_strlen(src))
-		{
-			dest[index] = '\0';
-		}
-		else
-		{
-			dest[index] = src[index];
-		}
+		dest[index] = src[index];
 		index++;
 	}
+
+	while	(index < n)
+	{
+		dest[index] = '\0';
+		index++;
+	}
+	
 
 	return dest;
 }
